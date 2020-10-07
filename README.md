@@ -9,7 +9,11 @@ The game will feature a 3rd person perspective, basic combat system, few types o
 Our team:
 
 Łukasz Wójcik - Team Leader
+
 Karolina Serpatowska - Software Engineer
+
 Marek Szypulski - Software Engineer
+
 Tomasz Jąder - Tester
+
 Szymon Żywko - Tester
