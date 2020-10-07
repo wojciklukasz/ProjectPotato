@@ -10,8 +10,8 @@ sysinfo.txt
 *.stackdump
 
 # ============================================= #
-# Visual Studio / MonoDevelop / Rider generated #
-# ============================================= #
+# Visual Studio / MonoDevelop / Rider generated :D#
+# ============================================= #  
 [Ee]xported[Oo]bj/
 .vs/
 /*.userprefs

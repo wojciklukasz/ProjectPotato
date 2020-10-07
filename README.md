@@ -17,3 +17,4 @@ Marek Szypulski - Software Engineer
 Tomasz Jąder - Tester
 
 Szymon Żywko - Tester
+.S
