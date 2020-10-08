@@ -1,7 +1,7 @@
 # ProjectPotato
 Projekt na zalicznenie przedmiotu Projekt Zespołowy
 
-Project: Potato will be a 3d Dark Souls-like game made in Unity.
+Project: Potato will be a 3d Dark Souls-like game made in Unity, the target platform is PC.
 
 The game will feature a 3rd person perspective, basic combat system, few types of enemies and some rpg elements.
 
