@@ -8,7 +8,7 @@ The game will feature a 3rd person perspective, basic combat system, few types o
 
 Our team:
 
-Łukasz Wójcik - Team Leader https://projectpotato.atlassian.net/browse/PP-1?filter=10001
+Łukasz Wójcik - Team Leader https://projectpotato.atlassian.net/issues?filter=10001
 
 Karolina Serpatowska - Software Engineer https://projectpotato.atlassian.net/issues/?filter=10003
 
