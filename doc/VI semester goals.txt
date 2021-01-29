@@ -1,17 +1,17 @@
-	Milestone 1: Player
+	Milestone 1: Map, Visuals, Player
 Sprint 1 1.03 - 14.03
 Łukasz	- Create map
 Karolina- Create map models
-Marek	- Create player input
-Tomek	- Test player input
+Marek	- Create player model
+Tomek	- Test player model
 Szymon	- Test map visually
 
 Sprint 2 15.03 - 28.03
 Łukasz	- Create GUI visuals
-Karolina- Create player model
-Marek	- Create camera movement
+Karolina- Create player input
+Marek	- Create camera controls
 Tomek	- Test camera movement
-Szymon	- Test for model/gui inconsistencies
+Szymon	- Test player input
 
 Sprint 3 12.04 - 25.04
 Łukasz	- Create player attack
@@ -32,22 +32,22 @@ Szymon	- Test enemy behaviour
 Sprint 5 10.05 - 23.05
 Łukasz	- Create main menu
 Karolina- Create ingame GUI
-Marek	- Boss AI
+Marek	- Boss Behaviour
 Tomek	- Test menus
 Szymon	- Test boss behaviour
 
 
-	Milestone 3: Beautification and extended combat
+	Milestone 3: Final UI, Extended combat, Sounds
 Sprint 6 24.05 - 06.06
-Łukasz	- Create UI visuals + Implement music
+Łukasz	- Implement music + Create healing visualls
 Karolina- Create player UI + Implement player sounds
-Marek	- Create enemy UI + Implement enemy sounds
+Marek	- Create enemy/boss UI + Implement enemy sounds
 Tomek	- Test player UI + Test player sounds
-Szymon	- Test enemy UI + Test enemy sounds
+Szymon	- Test enemy/boss UI + Test enemy sounds
 
 Sprint 7 07.06 - 20.06
-Łukasz	- Create healing visualls + Prepare for project presentation
+Łukasz	- Prepare for project presentation
 Karolina- Create player dodge
 Marek	- Create player healing + Create win condition
-Tomek	- Test player heal + Create win screen
+Tomek	- Test player heal + Create victory screen
 Szymon	- Test player dodge
