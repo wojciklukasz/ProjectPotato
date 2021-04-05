@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class GameplayInputHandler : MonoBehaviour
 {
+    [SerializeField] private CameraHandler camHandler; //temp, this will be game master
     [SerializeField] private Vector3 rawInputMovement; //temp for testing/debugging
     [SerializeField] private Vector3 rawCameraInput; //temp for testing/debugging
     public UnityAction OnMovementAction;
@@ -25,8 +26,9 @@ public class GameplayInputHandler : MonoBehaviour
     public void OnCameraMove(InputAction.CallbackContext value)
     {
         Vector2 inputCameraMovement = value.ReadValue<Vector2>();
-        print("CameraInput: " + inputCameraMovement);
+        //print("CameraInput: " + inputCameraMovement);
         rawCameraInput = new Vector3(inputCameraMovement.x, 0, inputCameraMovement.y);
+        camHandler.UpdateRawInputMovement(rawCameraInput);  //temp this will be to game master
         OnCameraMovementAction?.Invoke();
     }
 
