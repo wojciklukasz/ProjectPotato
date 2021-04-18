@@ -17,17 +17,17 @@ public class GameplayInputHandler : MonoBehaviour
     public void OnMove(InputAction.CallbackContext value)
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
-        print("InputMovemnt: " + inputMovement);
+        //print("InputMovemnt: " + inputMovement);
         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
-        OnMovementAction?.Invoke();
+        //OnMovementAction?.Invoke();
     }
 
     public void OnCameraMove(InputAction.CallbackContext value)
     {
         Vector2 inputCameraMovement = value.ReadValue<Vector2>();
-        print("CameraInput: " + inputCameraMovement);
+        //print("CameraInput: " + inputCameraMovement);
         rawCameraInput = new Vector3(inputCameraMovement.x, 0, inputCameraMovement.y);
-        OnCameraMovementAction?.Invoke();
+        //OnCameraMovementAction?.Invoke();
     }
 
     public void OnAttack(InputAction.CallbackContext value)
@@ -73,5 +73,15 @@ public class GameplayInputHandler : MonoBehaviour
             OnPauseAction?.Invoke();
             print("Pause button");
         }
+    }
+
+    public Vector3 getRawInputCamera()
+    {
+        return rawCameraInput;
+    }
+
+    public Vector3 getRawInputMovement()
+    {
+        return rawInputMovement;
     }
 }
