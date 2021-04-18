@@ -19,7 +19,7 @@ public class GameplayInputHandler : MonoBehaviour
         Vector2 inputMovement = value.ReadValue<Vector2>();
         //print("InputMovemnt: " + inputMovement);
         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
-        OnMovementAction?.Invoke();
+        //OnMovementAction?.Invoke();
     }
 
     public void OnCameraMove(InputAction.CallbackContext value)
@@ -27,7 +27,7 @@ public class GameplayInputHandler : MonoBehaviour
         Vector2 inputCameraMovement = value.ReadValue<Vector2>();
         //print("CameraInput: " + inputCameraMovement);
         rawCameraInput = new Vector3(inputCameraMovement.x, 0, inputCameraMovement.y);
-        OnCameraMovementAction?.Invoke();
+        //OnCameraMovementAction?.Invoke();
     }
 
     public void OnAttack(InputAction.CallbackContext value)

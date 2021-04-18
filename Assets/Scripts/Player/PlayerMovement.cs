@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayersMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Vector3 rawInputMovement;
     [SerializeField] private CharacterController characterController;
@@ -54,10 +54,9 @@ public class PlayersMovement : MonoBehaviour
         float speed;
         speed = new Vector2(rawInputMovement.x, rawInputMovement.z).sqrMagnitude;
 
-        playerAnimator.SetFloat("Vertical", rawInputMovement.z, 0.0f, Time.deltaTime * 2f);
-
         if (speed > allowPlayerRotation)
         {
+            playerAnimator.SetInteger("State", 0);
             playerAnimator.SetFloat("InputMove", speed, 0.0f, Time.deltaTime);
             var forward = mainCamera.transform.forward;
             var right = mainCamera.transform.right;

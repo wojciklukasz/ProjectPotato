@@ -5,6 +5,7 @@ public class Stats : ScriptableObject
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float attackSpeed;
 
     public float MoveSpeed
     {
@@ -14,5 +15,10 @@ public class Stats : ScriptableObject
     public float RotationSpeed
     {
         get { return rotationSpeed; }
+    }
+
+    public float AttackSpeed
+    {
+        get { return attackSpeed; }
     }
 }

@@ -7,13 +7,19 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CameraHandler cameraHandler;
     [SerializeField] private GameObject playerObject;
     public Stats playerStats;
-    [SerializeField] private PlayersMovement movement;
+    [SerializeField] private PlayerMovement movement;
+    [SerializeField] private PlayerAttacking attacking;
 
     private void Awake()
     {
-        movement.PlayerAnimator = playerObject.GetComponent<Animator>();
+        Animator anim= playerObject.GetComponent<Animator>();
+        movement.PlayerAnimator = anim;
         movement.MoveSpeed = playerStats.MoveSpeed;
         movement.RotationSpeed = playerStats.RotationSpeed;
+
+        attacking.PlayerAnimator = anim;
+        attacking.AttackSpeed = playerStats.AttackSpeed;
+        gameplayInputHandler.OnAttackAction += Attack;
     }
 
     private void Update()
@@ -25,5 +31,10 @@ public class PlayerManager : MonoBehaviour
     public void UpdateRawMovement(Vector3 newRawInputMovement)
     {
         rawInputMovement = newRawInputMovement;
+    }
+
+    private void Attack()
+    {
+        attacking.Attack();
     }
 }
