@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
 
     private float distance;
     private float distanceFromRespawn;
-    private bool TooFar;
+    private bool Back;
     void Start()
     {
         pos = transform.position;
@@ -30,12 +30,12 @@ public class EnemyMovement : MonoBehaviour
         {
             enemyAnimator.SetInteger("condition", 0);
             transform.LookAt(player.transform);
-            TooFar = false;
+            Back = false;
         }
     }
     public void MoveEnemy()
     {   
-        if(TooFar == true)
+        if(Back == true)
         {
             GoBack();
         }
@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
             distanceFromRespawn = Vector3.Distance(pos, transform.position);
             if (distanceFromRespawn > 15f)
             {
-                TooFar = true;
+                Back = true;
             }
             else if (distance < 2.5f)
             {
@@ -55,6 +55,14 @@ public class EnemyMovement : MonoBehaviour
                         enemyAnimator.SetInteger("condition", 1);
                         transform.LookAt(player.transform);
                         transform.position += transform.forward * speed * Time.deltaTime;
+            }
+            else if(distanceFromRespawn > 2f)
+            {
+                Back = true;
+            }
+            else
+            {
+                enemyAnimator.SetInteger("condition", 0);
             }
         }
         
