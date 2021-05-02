@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Animator enemyAnimator;
+    [SerializeField] private EnemyAttack attack;
     public Transform player;
     public Vector3 pos;
     private int speed = 3;
@@ -12,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private float distance;
     private float distanceFromRespawn;
     private bool Back;
+    public static bool close;
     void Start()
     {
         pos = transform.position;
@@ -34,27 +36,33 @@ public class EnemyMovement : MonoBehaviour
         }
     }
     public void MoveEnemy()
-    {   
-        if(Back == true)
+    {
+        if (Back == true)
         {
             GoBack();
+        }
+        else if (close == true)
+        {
+            attack.Attack();
         }
         else {
             distance = Vector3.Distance(player.position, transform.position);
             distanceFromRespawn = Vector3.Distance(pos, transform.position);
-            if (distanceFromRespawn > 15f)
+            if (distanceFromRespawn > 30f)
             {
                 Back = true;
             }
             else if (distance < 2.5f)
             {
-                        enemyAnimator.SetInteger("condition", 0);
+                close = true;
+                enemyAnimator.SetInteger("condition", 0);
+
             }
-            else if (distance < 10.0f)
+            else if (distance < 15.0f)
             {
-                        enemyAnimator.SetInteger("condition", 1);
-                        transform.LookAt(player.transform);
-                        transform.position += transform.forward * speed * Time.deltaTime;
+                enemyAnimator.SetInteger("condition", 1);
+                transform.LookAt(player.transform);
+                transform.position += transform.forward * speed * Time.deltaTime;
             }
             else if(distanceFromRespawn > 2f)
             {

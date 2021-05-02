@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
+  m_IndirectSpecularColor: {r: 1478.8682, g: 1831.9521, b: 2425.4668, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rawInputMovement: {x: 0, y: 0, z: 0}
-  CameraSpeed: 120
+  cameraSpeed: 120
   CameraFollowObj: {fileID: 662502479}
   clampAngle: 80
   inputSensitivity: 150
@@ -799,6 +799,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9213317688608548805, guid: 49cabfc4f94f0f643bc35a70a6529d36, type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 1337991074}
+    - target: {fileID: 9213317688608548807, guid: 49cabfc4f94f0f643bc35a70a6529d36, type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 1337991074}
     - target: {fileID: 9213317688608548807, guid: 49cabfc4f94f0f643bc35a70a6529d36, type: 3}
       propertyPath: player
       value: 
@@ -1495,6 +1503,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70536ef7dfc04f4c89b807d24aef0cf, type: 3}
+--- !u!1 &1337991069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9213317688608548802, guid: 49cabfc4f94f0f643bc35a70a6529d36, type: 3}
+  m_PrefabInstance: {fileID: 441344775}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1337991074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337991069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46350f3f34852c64fa6d9de64507cff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAnimator: {fileID: 0}
 --- !u!4 &1342966211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6678185200714366576, guid: b70536ef7dfc04f4c89b807d24aef0cf, type: 3}
