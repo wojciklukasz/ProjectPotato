@@ -3,12 +3,13 @@ using UnityEngine;
 public class CameraHandler : MonoBehaviour
 {
     [SerializeField] private Vector3 rawInputMovement;
-    [SerializeField] private float CameraSpeed = 120.0f;
+    [SerializeField] private float cameraSpeed = 120.0f;
     [SerializeField] private GameObject CameraFollowObj;
     [SerializeField] private float clampAngle = 80.0f;
     [SerializeField] private float inputSensitivity = 150.0f;
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
+
 
     private void Awake()
     {
@@ -44,7 +45,7 @@ public class CameraHandler : MonoBehaviour
     {
         Transform target = CameraFollowObj.transform;
 
-        float step = CameraSpeed * Time.deltaTime;
+        float step = cameraSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
 

@@ -7,6 +7,7 @@ public class CameraCollision : MonoBehaviour
     [SerializeField] private float smooth = 10.0f;
     private Vector3 dollyDir;
     [SerializeField] private float distance;
+    private RaycastHit hit;
 
     private void Awake()
     {
@@ -16,20 +17,24 @@ public class CameraCollision : MonoBehaviour
 
     private void Update()
     {
-        Vector3 desiredCameraPosition = transform.parent.TransformPoint(dollyDir * maxDistance);
-        RaycastHit hit;
+        CorrectPosition();
+    }
 
-        if (Physics.Linecast(transform.parent.position, desiredCameraPosition, out hit))
-        {
-            //if (hit.collider.tag != "Player" && hit.collider.tag != "Enemy" && hit.collider.tag != "Hitbox" && hit.collider.tag != "WeaponHitbox")
-            if (hit.collider.tag == "CollisionForCamera")
-                distance = Mathf.Clamp((hit.distance * 0.86f), minDistance, maxDistance);
-        }
-        else
-        {
-            distance = maxDistance;
-        }
-
+    private void CorrectPosition()
+    {
+        if(CheckCollision()) distance = Mathf.Clamp((hit.distance * 0.86f), minDistance, maxDistance);
+        else distance = maxDistance;
         transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDir * distance, Time.deltaTime * smooth);
     }
-}
+
+    private bool CheckCollision()
+    {
+        Vector3 desiredCameraPosition = transform.parent.TransformPoint(dollyDir * maxDistance);
+        if (Physics.Linecast(transform.parent.position, desiredCameraPosition, out hit))
+        {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("CameraCollision")) return true;
+            return false;
+        }
+        else return false;
+    }
+};
