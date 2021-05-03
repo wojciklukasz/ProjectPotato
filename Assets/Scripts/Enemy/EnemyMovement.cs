@@ -7,13 +7,13 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private EnemyAttack attack;
     public Transform player;
-    public Vector3 pos;
+    private Vector3 pos;
+    private Vector3 playerPosition;
     private int speed = 3;
-
     private float distance;
     private float distanceFromRespawn;
     private bool Back;
-    public static bool close;
+    
     void Start()
     {
         pos = transform.position;
@@ -22,11 +22,12 @@ public class EnemyMovement : MonoBehaviour
     {
         set { enemyAnimator = value; }
     }
+    
     public void GoBack()
     {
         enemyAnimator.SetInteger("condition", 1);
         transform.LookAt(pos);
-        transform.position += transform.forward * speed * 1.5f * Time.deltaTime;
+        transform.position += transform.forward * speed * 3f * Time.deltaTime;
         distanceFromRespawn = Vector3.Distance(pos, transform.position);
         if (distanceFromRespawn < 1.0f)
         {
@@ -41,30 +42,27 @@ public class EnemyMovement : MonoBehaviour
         {
             GoBack();
         }
-        else if (close == true)
+        else
         {
-            attack.Attack();
-        }
-        else {
             distance = Vector3.Distance(player.position, transform.position);
             distanceFromRespawn = Vector3.Distance(pos, transform.position);
+            playerPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
             if (distanceFromRespawn > 30f)
             {
                 Back = true;
             }
             else if (distance < 2.5f)
             {
-                close = true;
-                enemyAnimator.SetInteger("condition", 0);
-
+                transform.LookAt(playerPosition);
+                StartCoroutine(attack.Attack());
             }
             else if (distance < 15.0f)
             {
+                transform.LookAt(playerPosition);
                 enemyAnimator.SetInteger("condition", 1);
-                transform.LookAt(player.transform);
                 transform.position += transform.forward * speed * Time.deltaTime;
             }
-            else if(distanceFromRespawn > 2f)
+            else if (distanceFromRespawn > 2f)
             {
                 Back = true;
             }
@@ -73,6 +71,6 @@ public class EnemyMovement : MonoBehaviour
                 enemyAnimator.SetInteger("condition", 0);
             }
         }
-        
     }
+
 }

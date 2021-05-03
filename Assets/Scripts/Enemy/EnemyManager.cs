@@ -20,7 +20,10 @@ public class EnemyManager : MonoBehaviour
    
     void Update()
     {
-        movement.MoveEnemy();
+        if (attack.Close == false)
+        {
+            movement.MoveEnemy();
+        }
     }
     private void Attack()
     {

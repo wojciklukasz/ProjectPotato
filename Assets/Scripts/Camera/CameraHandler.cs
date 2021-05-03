@@ -33,8 +33,8 @@ public class CameraHandler : MonoBehaviour
     private void Rotate()
     {
         rotationY += rawInputMovement.x * inputSensitivity * Time.deltaTime;
-        rotationX += rawInputMovement.z * inputSensitivity * Time.deltaTime;
-
+        rotationX += rawInputMovement.z * (-1) * inputSensitivity * Time.deltaTime;
+        
         rotationX = Mathf.Clamp(rotationX, -clampAngle, clampAngle);
 
         Quaternion localRotation = Quaternion.Euler(rotationX, rotationY, 0.0f);

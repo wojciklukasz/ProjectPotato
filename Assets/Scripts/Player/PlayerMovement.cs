@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool blockRotationPlayer;
     [SerializeField] private float rotationSpeed = 0.1f;
     [SerializeField] private float allowPlayerRotation;
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveSpeed = 20f;
 
     [SerializeField] private Animator playerAnimator;
 
