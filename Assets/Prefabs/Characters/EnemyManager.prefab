@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 9213317688608548807}
   - component: {fileID: 9213317688608548806}
   - component: {fileID: 27651579}
-  m_Layer: 0
+  - component: {fileID: 27651575}
+  - component: {fileID: 27651576}
+  m_Layer: 6
   m_Name: EnemyManager
-  m_TagString: Untagged
+  m_TagString: SnakeMan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +97,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 0}
   movement: {fileID: 9213317688608548807}
+--- !u!136 &27651575
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213317688608548802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.494151
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.082650185, z: 0}
+--- !u!114 &27651576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213317688608548802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bbd61a5f68a4a49812fd88d21f35a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5432064084358432395
 PrefabInstance:
   m_ObjectHideFlags: 0

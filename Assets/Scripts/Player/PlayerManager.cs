@@ -11,11 +11,15 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerAttacking attacking;
     [SerializeField] private PlayerAnimations playerAnimations;
     [SerializeField] private bool isAttacking = false;
+    [SerializeField] private GameObject weaponObject;
+    BoxCollider weaponCollider;
 
     private void Awake()
     {
         Animator anim= playerObject.GetComponent<Animator>();
         playerAnimations.Animator = anim;
+        weaponCollider = weaponObject.GetComponent<BoxCollider>();
+        weaponCollider.enabled = false;
         movement.MoveSpeed = playerStats.MoveSpeed;
         movement.RotationSpeed = playerStats.RotationSpeed;
         movement.Animations = playerAnimations;
@@ -30,10 +34,12 @@ public class PlayerManager : MonoBehaviour
         if (playerAnimations.IsAnimationPlaying("attack1") || playerAnimations.IsAnimationPlaying("attack2"))
         {
             isAttacking = true;
+            weaponCollider.enabled = true;
         }
         else
         {
             isAttacking = false;
+            weaponCollider.enabled = false;
         }
 
         if (!isAttacking)
@@ -57,6 +63,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (!isAttacking)
         {
+            weaponCollider.enabled = true;
             attacking.Attack();
         }
     }
