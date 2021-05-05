@@ -5,30 +5,29 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 rawInputMovement;
     [SerializeField] private CharacterController characterController;
     private float verticalVel;
-    [SerializeField] private Vector3 moveVector;
 
     [SerializeField] private Camera mainCamera;
-    private Vector3 desiredMoveDirection;
+
     [SerializeField] private bool blockRotationPlayer;
     [SerializeField] private float rotationSpeed = 0.1f;
     [SerializeField] private float allowPlayerRotation;
     [SerializeField] private float moveSpeed = 20f;
 
-    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private PlayerAnimations animations;
 
     public float MoveSpeed
     {
         set { moveSpeed = value; }
     }
 
-    public Animator PlayerAnimator
-    {
-        set { playerAnimator = value; }
-    }
-
     public float RotationSpeed
     {
         set { rotationSpeed = value; }
+    }
+
+    public PlayerAnimations Animations
+    {
+        set { animations = value; }
     }
 
     public void SetRawInputMovement(Vector3 newRawInputMovement)
@@ -45,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckIsGrounded();
         MoveAndRotate();
-        moveVector = new Vector3(0, verticalVel, 0);
+        Vector3 moveVector = new Vector3(0, verticalVel, 0);
         characterController.Move(moveVector);
     }
 
@@ -56,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (speed > allowPlayerRotation)
         {
-            playerAnimator.SetInteger("State", 0);
-            playerAnimator.SetFloat("InputMove", speed, 0.0f, Time.deltaTime);
+            //animations.PlayAnimation("Move");
+            animations.SetFloatAnimation("InputMove", speed);
             var forward = mainCamera.transform.forward;
             var right = mainCamera.transform.right;
             forward.y = 0f;
@@ -65,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
             forward.Normalize();
             right.Normalize();
-
+            Vector3 desiredMoveDirection;
             desiredMoveDirection = forward * rawInputMovement.z + right * rawInputMovement.x;
 
             if (!blockRotationPlayer)
@@ -76,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (speed <= allowPlayerRotation)
         {
-            playerAnimator.SetFloat("InputMove", speed, 0.0f, Time.deltaTime);
+            animations.SetFloatAnimation("InputMove", speed);
         }
     }
 

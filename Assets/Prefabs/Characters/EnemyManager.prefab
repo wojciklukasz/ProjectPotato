@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9213317688608548805}
   - component: {fileID: 9213317688608548807}
   - component: {fileID: 9213317688608548806}
+  - component: {fileID: 27651579}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 8467230082762579340}
   movement: {fileID: 9213317688608548807}
+  attack: {fileID: 27651579}
 --- !u!114 &9213317688608548807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,8 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 0}
+  attack: {fileID: 27651579}
   player: {fileID: 0}
-  pos: {x: 0, y: 0, z: 0}
 --- !u!54 &9213317688608548806
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,6 +81,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &27651579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213317688608548802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46350f3f34852c64fa6d9de64507cff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAnimator: {fileID: 0}
+  movement: {fileID: 9213317688608548807}
 --- !u!1001 &5432064084358432395
 PrefabInstance:
   m_ObjectHideFlags: 0
