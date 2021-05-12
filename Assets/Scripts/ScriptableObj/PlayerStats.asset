@@ -15,3 +15,4 @@ MonoBehaviour:
   moveSpeed: 3
   rotationSpeed: 0.1
   attackSpeed: 0.9
+  health: 100

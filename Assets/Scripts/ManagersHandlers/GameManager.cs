@@ -6,6 +6,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameplayInputHandler gameplayInputHandler;
     [SerializeField] private CameraHandler cameraHandler;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private GameplayUI gameplayUI;
+
+    private void Awake()
+    {
+        gameplayUI.SetHealth(playerManager.playerStats.Health, true);
+        gameplayUI.ShowPlayerUI();
+    }
 
     private void Update()
     {
