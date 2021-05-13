@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
@@ -6,18 +7,22 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private ButtonsHandler buttons;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject credtisMenu;
+    [SerializeField] private Button firstSelectedButtonMainMenu;
+    [SerializeField] private Button firstSelectedButtonCreditsMenu;
 
     private void Awake()
     {
         credtisMenu.SetActive(false);
         mainMenu.SetActive(true);
         MainMenuButtonsSubscribe();
+        firstSelectedButtonMainMenu.Select();
     }
 
     private void StartGame()
     {
         print("START BUTTON");
-        //SceneManager.LoadScene(1);
+        MainMenuButtonsUnsubscribe();
+        SceneManager.LoadScene(1);
     }
 
     private void ExitGame()
@@ -33,6 +38,7 @@ public class MainMenuManager : MonoBehaviour
         buttons.OnReturnClick += HideCreditsMenu;
         mainMenu.SetActive(false);
         credtisMenu.SetActive(true);
+        firstSelectedButtonCreditsMenu.Select();
     }
 
     private void HideCreditsMenu()
@@ -42,6 +48,7 @@ public class MainMenuManager : MonoBehaviour
         credtisMenu.SetActive(false);
         mainMenu.SetActive(true);
         MainMenuButtonsSubscribe();
+        firstSelectedButtonMainMenu.Select();
     }
 
     private void MainMenuButtonsSubscribe()
