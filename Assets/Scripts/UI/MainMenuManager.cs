@@ -16,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
         mainMenu.SetActive(true);
         MainMenuButtonsSubscribe();
         firstSelectedButtonMainMenu.Select();
+        firstSelectedButtonMainMenu.OnSelect(null);
     }
 
     private void StartGame()
@@ -39,6 +40,7 @@ public class MainMenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         credtisMenu.SetActive(true);
         firstSelectedButtonCreditsMenu.Select();
+        firstSelectedButtonCreditsMenu.OnSelect(null);
     }
 
     private void HideCreditsMenu()
@@ -49,6 +51,7 @@ public class MainMenuManager : MonoBehaviour
         mainMenu.SetActive(true);
         MainMenuButtonsSubscribe();
         firstSelectedButtonMainMenu.Select();
+        firstSelectedButtonMainMenu.OnSelect(null);
     }
 
     private void MainMenuButtonsSubscribe()

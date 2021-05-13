@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class GameplayInputHandler : MonoBehaviour
 {
+    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Vector3 rawInputMovement; //temp for testing/debugging
     [SerializeField] private Vector3 rawCameraInput; //temp for testing/debugging
     public UnityAction OnMovementAction;
@@ -83,5 +84,15 @@ public class GameplayInputHandler : MonoBehaviour
     public Vector3 getRawInputMovement()
     {
         return rawInputMovement;
+    }
+
+    public void SwitchActionMapToUI()
+    {
+        playerInput.SwitchCurrentActionMap("UI");
+    }
+
+    public void SwitchActionMapToPlayer()
+    {
+        playerInput.SwitchCurrentActionMap("Player");
     }
 }
