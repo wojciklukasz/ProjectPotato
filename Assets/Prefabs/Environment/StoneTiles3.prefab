@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4290670913685502436}
   - component: {fileID: 4290670913686829508}
   - component: {fileID: 4290670913687796484}
-  - component: {fileID: 4290670913731048633}
+  - component: {fileID: 4021257726404986079}
   m_Layer: 0
   m_Name: StoneTiles3
   m_TagString: Untagged
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4290670913731048633
-MeshCollider:
+--- !u!65 &4021257726404986079
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,7 +92,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 6ca41d3aa580c7d4dbc3d250753dc00f, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 4.1759624, y: 3.9127753, z: 1.3050271}
+  m_Center: {x: 0, y: 0, z: 0}

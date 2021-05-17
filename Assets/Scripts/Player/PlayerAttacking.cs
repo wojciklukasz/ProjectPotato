@@ -2,21 +2,26 @@ using UnityEngine;
 
 public class PlayerAttacking : MonoBehaviour
 {
-    private float attackSpeed;
-    [SerializeField] private Animator playerAnimator;
+    private float nextAttack;
+    [SerializeField] private float attackSpeed = 0.9f;
+    [SerializeField] private PlayerAnimations animations;
 
     public float AttackSpeed
     {
         set { attackSpeed = value; }
     }
 
-    public Animator PlayerAnimator
+    public PlayerAnimations Animations
     {
-        set { playerAnimator = value; }
+        set { animations = value; }
     }
 
     public void Attack()
     {
-        playerAnimator.SetInteger("State", 1);
+        if(Time.time > nextAttack)
+        {
+            nextAttack = Time.time + attackSpeed;
+            animations.PlayAnimation("Attack");
+        }
     }
 }
