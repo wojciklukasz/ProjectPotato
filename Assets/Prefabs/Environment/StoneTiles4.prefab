@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6468303003268204885}
   - component: {fileID: 6468303003266877813}
   - component: {fileID: 6468303003265911733}
-  - component: {fileID: 6468303003817683659}
+  - component: {fileID: 1219556969339939894}
   m_Layer: 0
   m_Name: Box016
   m_TagString: Untagged
@@ -114,8 +114,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6468303003817683659
-MeshCollider:
+--- !u!65 &1219556969339939894
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,10 +124,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 2d8402e543c9173428264cd2e8429b50, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.4290729, y: 2.4290733, z: 0.2429075}
+  m_Center: {x: 0.0000076293945, y: 0, z: 0.12145375}
 --- !u!1 &6468303003268109687
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +138,7 @@ GameObject:
   - component: {fileID: 6468303003268204887}
   - component: {fileID: 6468303003266877815}
   - component: {fileID: 6468303003265911735}
-  - component: {fileID: 6468303003967175873}
+  - component: {fileID: 2829835523298359816}
   m_Layer: 0
   m_Name: Box012
   m_TagString: Untagged
@@ -210,8 +209,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6468303003967175873
-MeshCollider:
+--- !u!65 &2829835523298359816
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -220,7 +219,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 2d8402e543c9173428264cd2e8429b50, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 7.4014864, y: 7.727868, z: 0.77371484}
+  m_Center: {x: 0.0000076293945, y: -0.00000011920932, z: 0.00000047683716}

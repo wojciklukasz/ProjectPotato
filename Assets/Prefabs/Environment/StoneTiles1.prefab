@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7813221247703606851}
   - component: {fileID: 7813221247702804067}
   - component: {fileID: 7813221247701836963}
+  - component: {fileID: 338550132362318411}
   m_Layer: 0
   m_Name: StoneTiles1
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &338550132362318411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813221247704103523}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9172034, y: 4.895695, z: 0.2429075}
+  m_Center: {x: 0, y: 0, z: 0}

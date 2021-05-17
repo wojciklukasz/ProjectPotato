@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &2074549086
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652744188415001294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11314359, y: 1.702968, z: 0.41753277}
+  m_Center: {x: -0.00014031766, y: -0.06578371, z: -0.057458967}
 --- !u!1 &7652744189169484042
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,9 +26,10 @@ GameObject:
   - component: {fileID: 7652744189169484040}
   - component: {fileID: 7652744189169484041}
   - component: {fileID: 7652744189169484047}
-  m_Layer: 0
+  - component: {fileID: 1115906237}
+  m_Layer: 7
   m_Name: PlayerManager
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,6 +86,9 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 45f307a81ed12aa44bc724fe1d509765, type: 2}
   movement: {fileID: 7652744189169484041}
   attacking: {fileID: 7652744189169484047}
+  playerAnimations: {fileID: 1115906237}
+  isAttacking: 0
+  weaponObject: {fileID: 7652744188415001294}
 --- !u!114 &7652744189169484041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,13 +103,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawInputMovement: {x: 0, y: 0, z: 0}
   characterController: {fileID: 7652744189169484046}
-  moveVector: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 0}
   blockRotationPlayer: 0
   rotationSpeed: 0.1
   allowPlayerRotation: 0
   moveSpeed: 3
-  playerAnimator: {fileID: 0}
+  animations: {fileID: 0}
 --- !u!114 &7652744189169484047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +121,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2436eb570ba79d4a90fd6f2de49585d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 0}
+  attackSpeed: 0.9
+  animations: {fileID: 0}
+--- !u!114 &1115906237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652744189169484042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3865077e2c0404eb5ea7140f2c1dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  animationToPlay: 0
 --- !u!1001 &7894491182412098993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,6 +192,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 557003434990579583, guid: 7f8bf219158a6bb4384fa4e7c1e8c970, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f8bf219158a6bb4384fa4e7c1e8c970, type: 3}
 --- !u!1 &7652744189671010345 stripped
@@ -171,5 +206,10 @@ GameObject:
 --- !u!4 &7652744189671010351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 557003434640154014, guid: 7f8bf219158a6bb4384fa4e7c1e8c970, type: 3}
+  m_PrefabInstance: {fileID: 7894491182412098993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7652744188415001294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 557003434990579583, guid: 7f8bf219158a6bb4384fa4e7c1e8c970, type: 3}
   m_PrefabInstance: {fileID: 7894491182412098993}
   m_PrefabAsset: {fileID: 0}

@@ -9,23 +9,43 @@ public class PlayerManager : MonoBehaviour
     public Stats playerStats;
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAttacking attacking;
+    [SerializeField] private PlayerAnimations playerAnimations;
+    [SerializeField] private bool isAttacking = false;
+    [SerializeField] private GameObject weaponObject;
+    BoxCollider weaponCollider;
 
     private void Awake()
     {
         Animator anim= playerObject.GetComponent<Animator>();
-        movement.PlayerAnimator = anim;
+        playerAnimations.Animator = anim;
+        weaponCollider = weaponObject.GetComponent<BoxCollider>();
+        weaponCollider.enabled = false;
         movement.MoveSpeed = playerStats.MoveSpeed;
         movement.RotationSpeed = playerStats.RotationSpeed;
+        movement.Animations = playerAnimations;
 
-        attacking.PlayerAnimator = anim;
+        attacking.Animations = playerAnimations;
         attacking.AttackSpeed = playerStats.AttackSpeed;
         gameplayInputHandler.OnAttackAction += Attack;
     }
 
     private void Update()
     {
-        movement.SetRawInputMovement(rawInputMovement);
-        movement.MovePlayer();
+        if (playerAnimations.IsAnimationPlaying("attack1") || playerAnimations.IsAnimationPlaying("attack2"))
+        {
+            isAttacking = true;
+            weaponCollider.enabled = true;
+        }
+        else
+        {
+            isAttacking = false;
+            weaponCollider.enabled = false;
+        }
+
+        if (!isAttacking)
+        {
+            Movement();
+        }
     }
 
     public void UpdateRawMovement(Vector3 newRawInputMovement)
@@ -33,8 +53,18 @@ public class PlayerManager : MonoBehaviour
         rawInputMovement = newRawInputMovement;
     }
 
+    private void Movement()
+    {
+        movement.SetRawInputMovement(rawInputMovement);
+        movement.MovePlayer();
+    }
+
     private void Attack()
     {
-        attacking.Attack();
+        if (!isAttacking)
+        {
+            weaponCollider.enabled = true;
+            attacking.Attack();
+        }
     }
 }
