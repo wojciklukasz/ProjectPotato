@@ -14,7 +14,7 @@ public class PlayerAnimations : MonoBehaviour
     };
 
     public animationsNames animationToPlay;
-    private int attackAnimation;
+
 
     public Animator Animator
     {
@@ -23,6 +23,9 @@ public class PlayerAnimations : MonoBehaviour
 
     public void PlayAnimation(string name)
     {
+        int attackAnimation=0;
+        int deathAnimation=0;
+
         switch (name)
         {
             case "Move":
@@ -32,13 +35,18 @@ public class PlayerAnimations : MonoBehaviour
                 attackAnimation = Random.Range(0, 2);
                 animationToPlay = animationsNames.Attack;
                 break;
+            case "Death":
+                animationToPlay = animationsNames.Death;
+                break;
             default:
+                deathAnimation = Random.Range(0, 2);
                 animationToPlay = animationsNames.Move;
                 break;
         }
 
         animator.SetInteger("State", (int)animationToPlay);
         if((int)animationToPlay==1) animator.SetInteger("Attack", attackAnimation);
+        if ((int)animationToPlay == 4) animator.SetInteger("Death", deathAnimation);
 
     }
 

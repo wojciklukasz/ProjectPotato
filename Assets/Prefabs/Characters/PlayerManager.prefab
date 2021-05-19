@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 7652744189169484041}
   - component: {fileID: 7652744189169484047}
   - component: {fileID: 1115906237}
+  - component: {fileID: 1984006908}
   m_Layer: 7
   m_Name: PlayerManager
   m_TagString: Player
@@ -89,6 +90,8 @@ MonoBehaviour:
   playerAnimations: {fileID: 1115906237}
   isAttacking: 0
   weaponObject: {fileID: 7652744188415001294}
+  hitboxCollider: {fileID: 1984006908}
+  health: 0
 --- !u!114 &7652744189169484041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +140,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   animationToPlay: 0
+--- !u!114 &1984006908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652744189169484042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bbd61a5f68a4a49812fd88d21f35a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7894491182412098993
 PrefabInstance:
   m_ObjectHideFlags: 0

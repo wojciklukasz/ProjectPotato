@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,6 +14,15 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private bool isAttacking = false;
     [SerializeField] private GameObject weaponObject;
     BoxCollider weaponCollider;
+    [SerializeField] private HitboxCollider hitboxCollider;
+    [SerializeField] private float health;
+    public UnityAction OnHealthUpdate;
+    public UnityAction OnDeath;
+
+    public float Health
+    {
+        get { return health; }
+    }
 
     private void Awake()
     {
@@ -27,6 +37,10 @@ public class PlayerManager : MonoBehaviour
         attacking.Animations = playerAnimations;
         attacking.AttackSpeed = playerStats.AttackSpeed;
         gameplayInputHandler.OnAttackAction += Attack;
+
+        hitboxCollider.OnKillCollision += Death;
+        health = playerStats.Health;
+        OnHealthUpdate?.Invoke();
     }
 
     private void Update()
@@ -42,7 +56,7 @@ public class PlayerManager : MonoBehaviour
             weaponCollider.enabled = false;
         }
 
-        if (!isAttacking)
+        if (!isAttacking && movement.enabled)
         {
             Movement();
         }
@@ -61,10 +75,21 @@ public class PlayerManager : MonoBehaviour
 
     private void Attack()
     {
-        if (!isAttacking)
+        if (!isAttacking && attacking.enabled)
         {
             weaponCollider.enabled = true;
             attacking.Attack();
         }
+    }
+
+    private void Death()
+    {
+        print("Kill player");
+        attacking.enabled = false;
+        movement.enabled = false;
+        playerAnimations.PlayAnimation("Death");
+        health = 0.0f;
+        OnHealthUpdate?.Invoke();
+        OnDeath?.Invoke(); //need wait for end of animation
     }
 }

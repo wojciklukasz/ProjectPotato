@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameplayUI gameplayUI;
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private bool isPause = false;
+    [SerializeField] private bool isDefeatMenu = false;
     [SerializeField] private WinMenu winMenu;
     [SerializeField] private DefeatMenu defeatMenu;
 
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
         gameplayUI.ShowPlayerUI();
         gameplayInputHandler.OnPauseAction += Pause;
         pauseMenu.OnChangePauseState += ChangePauseStateOnButton;
+        playerManager.OnHealthUpdate += UpdateHealthBar;
+        playerManager.OnDeath += LoseGame;
     }
 
     private void Update()
@@ -29,14 +32,14 @@ public class GameManager : MonoBehaviour
 
     private void Pause()
     {
-        if (!isPause)
+        if (!isPause && !isDefeatMenu)
         {
             isPause = true;
             print("PAUSE");
             pauseMenu.OnEnable?.Invoke();
             gameplayInputHandler.SwitchActionMapToUI();
         }
-        else
+        else if (!isDefeatMenu)
         {
             isPause = false;
             print("DISABLE PAUSE");
@@ -57,5 +60,19 @@ public class GameManager : MonoBehaviour
             isPause = true;
             gameplayInputHandler.SwitchActionMapToUI();
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        print("UPDATE HEALTH BAR");
+        gameplayUI.SetHealth(playerManager.Health, false);
+    }
+
+    private void LoseGame()
+    {
+        print("Defeat MENU");
+        isDefeatMenu = true;
+        gameplayInputHandler.SwitchActionMapToUI();
+        defeatMenu.OnEnable?.Invoke();
     }
 }
