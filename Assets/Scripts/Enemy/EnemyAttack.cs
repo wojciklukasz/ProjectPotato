@@ -7,8 +7,11 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private EnemyMovement movement;
     private int randomAttack;
-    private bool close;
+    [SerializeField] private bool close;
 
+
+    private float nextAttack;
+    [SerializeField] private float attackSpeed = 0.9f;
 
     public Animator EnemyAnimator
     {
@@ -21,31 +24,68 @@ public class EnemyAttack : MonoBehaviour
     }
     
 
-    public IEnumerator Attack()
+    //public IEnumerator Attack()
+    //{
+    //    enemyAnimator.SetInteger("condition", 0);
+    //    Close = true;
+    //    randomAttack = 0;
+    //    randomAttack = Random.Range(1, 4);
+    //    switch (randomAttack)
+    //    {
+    //        case 1:
+    //            Attack1();
+    //            Debug.Log("atak1");
+    //            break;
+    //        case 2:
+    //            Attack2();
+    //            Debug.Log("atak2");
+    //            break;
+    //        case 3:
+    //            Attack3();
+    //            Debug.Log("atak3");
+    //            break;
+    //    }
+    //    yield return new WaitForSeconds(2);
+    //    //enemyAnimator.SetInteger("attack", 0);
+    //    Close = false;
+    //}
+
+    public void Attack()
     {
-        enemyAnimator.SetInteger("condition", 0);
-        Close = true;
-        randomAttack = 0;
-        randomAttack = Random.Range(1, 4);
-        switch (randomAttack)
+        if (Time.time > nextAttack)
         {
-            case 1:
-                Attack1();
-                Debug.Log("atak1");
-                break;
-            case 2:
-                Attack2();
-                Debug.Log("atak2");
-                break;
-            case 3:
-                Attack3();
-                Debug.Log("atak3");
-                break;
+            print("ENEMY ATTACK");
+            nextAttack = Time.time + attackSpeed;
+            //attack
+            enemyAnimator.SetInteger("condition", 2);
+            Close = true;
+            randomAttack = 0;
+            randomAttack = Random.Range(1, 4);
+            switch (randomAttack)
+            {
+                case 1:
+                    Attack1();
+                    Debug.Log("atak1");
+                    break;
+                case 2:
+                    Attack2();
+                    Debug.Log("atak2");
+                    break;
+                case 3:
+                    Attack3();
+                    Debug.Log("atak3");
+                    break;
+            }
         }
-        yield return new WaitForSeconds(2);
-        //enemyAnimator.SetInteger("attack", 0);
-        Close = false;
+        else
+        {
+            //Close = false;
+        }
     }
+
+
+
+
     public void Attack1()
     {
         enemyAnimator.SetInteger("attack", 1);

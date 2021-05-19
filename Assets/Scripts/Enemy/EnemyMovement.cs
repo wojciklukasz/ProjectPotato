@@ -54,7 +54,8 @@ public class EnemyMovement : MonoBehaviour
             else if (distance < 2.5f)
             {
                 transform.LookAt(playerPosition);
-                StartCoroutine(attack.Attack());
+                attack.Attack();
+                //StartCoroutine(attack.Attack());
             }
             else if (distance < 15.0f)
             {
