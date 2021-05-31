@@ -61,6 +61,4 @@ public class PlayerAnimations : MonoBehaviour
         else return false;
     }
 
-    
-
 }

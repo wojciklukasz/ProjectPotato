@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private HitboxCollider hitboxCollider;
     [SerializeField] private float health;
     public UnityAction OnHealthUpdate;
-    public UnityAction OnDeath;
+    public UnityAction OnDeath; //anim event invokes this - death anim done
 
     public float Health
     {
@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         attacking.AttackSpeed = playerStats.AttackSpeed;
         gameplayInputHandler.OnAttackAction += Attack;
 
-        hitboxCollider.OnKillCollision += Death;
+        hitboxCollider.OnKillCollision += Death; //play death anim + set hp to 0
         health = playerStats.Health;
         OnHealthUpdate?.Invoke();
     }
@@ -90,6 +90,5 @@ public class PlayerManager : MonoBehaviour
         playerAnimations.PlayAnimation("Death");
         health = 0.0f;
         OnHealthUpdate?.Invoke();
-        OnDeath?.Invoke(); //need wait for end of animation
     }
 }
