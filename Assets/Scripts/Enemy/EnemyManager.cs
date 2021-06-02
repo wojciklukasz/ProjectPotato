@@ -23,8 +23,8 @@ public class EnemyManager : MonoBehaviour
    
     void Update()
     {
-        print("CONDITION:" + anim.GetInteger("condition"));
-        print("ATTACK:" + anim.GetInteger("attack"));
+        //print("CONDITION:" + anim.GetInteger("condition"));
+        //print("ATTACK:" + anim.GetInteger("attack"));
 
         if (anim.GetInteger("condition") != 2)
         {
@@ -33,7 +33,7 @@ public class EnemyManager : MonoBehaviour
 
         if (attack.Close == false)
         {
-            print("ENEMY MOVE");
+            //print("ENEMY MOVE");
             movement.MoveEnemy();
         }
 

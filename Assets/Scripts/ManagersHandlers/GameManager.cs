@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool isDefeatMenu = false;
     [SerializeField] private WinMenu winMenu;
     [SerializeField] private DefeatMenu defeatMenu;
+    [SerializeField] private TriggerBattle triggerBoss;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.OnChangePauseState += ChangePauseStateOnButton;
         playerManager.OnHealthUpdate += UpdateHealthBar;
         playerManager.OnDeath += LoseGame;
+        triggerBoss.OnStartBattle += TriggerBossBattle;
     }
 
     private void Update()
@@ -74,5 +76,12 @@ public class GameManager : MonoBehaviour
         isDefeatMenu = true;
         gameplayInputHandler.SwitchActionMapToUI();
         defeatMenu.OnEnable?.Invoke();
+    }
+
+    private void TriggerBossBattle()
+    {
+        print("BOSS BATTLE TRIGGER");
+        //maybe set music
+        //show boss hp bar
     }
 }
