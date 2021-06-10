@@ -16,3 +16,4 @@ MonoBehaviour:
   rotationSpeed: 0.1
   attackSpeed: 0.9
   health: 100
+  dmg: 30

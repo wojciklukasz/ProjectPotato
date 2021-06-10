@@ -8,8 +8,11 @@ public abstract class EnemyEntity : MonoBehaviour
     [SerializeField] protected GameObject enemyObj;
     [SerializeField] protected EnemyAnimations animations;
     [SerializeField] public Stats enemyStats;
+    public float attackCounter = 0;
+    public float dmg = 5f;
 
     protected abstract void Attack();
     protected abstract void Move();
     protected abstract void Death();
+    public abstract void TakeDmg(float amount);
 }

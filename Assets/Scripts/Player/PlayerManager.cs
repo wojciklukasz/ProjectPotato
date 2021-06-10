@@ -18,6 +18,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float health;
     public UnityAction OnHealthUpdate;
     public UnityAction OnDeath; //anim event invokes this - death anim done
+    public float attackCounter = 0;
+    public float dmg = 10f;
+    private bool isDeath = false;
 
     public float Health
     {
@@ -26,6 +29,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        dmg = playerStats.Dmg;
         Animator anim= playerObject.GetComponent<Animator>();
         playerAnimations.Animator = anim;
         weaponCollider = weaponObject.GetComponent<BoxCollider>();
@@ -52,6 +56,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
+            attackCounter = 0;
             isAttacking = false;
             weaponCollider.enabled = false;
         }
@@ -59,6 +64,11 @@ public class PlayerManager : MonoBehaviour
         if (!isAttacking && movement.enabled)
         {
             Movement();
+        }
+
+        if(health<=0f && !isDeath)
+        {
+            Death();
         }
     }
 
@@ -84,11 +94,21 @@ public class PlayerManager : MonoBehaviour
 
     private void Death()
     {
+        isDeath = true;
         print("Kill player");
         attacking.enabled = false;
         movement.enabled = false;
         playerAnimations.PlayAnimation("Death");
         health = 0.0f;
         OnHealthUpdate?.Invoke();
+    }
+
+    public void TakeDmg(float amount)
+    {
+        if (health > 0f)
+        {
+            health -= amount;
+            OnHealthUpdate?.Invoke();
+        }
     }
 }
