@@ -53,3 +53,4 @@ MonoBehaviour:
   isDefeatMenu: 0
   winMenu: {fileID: 0}
   defeatMenu: {fileID: 0}
+  triggerBoss: {fileID: 0}

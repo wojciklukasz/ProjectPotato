@@ -1,23 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : EnemyEntity
 {
-    [SerializeField] private GameObject enemyObject;
-    [SerializeField] private EnemyMovement movement;
-    [SerializeField] private EnemyAttack attack;
-    private Animator anim;
+    [SerializeField] protected EnemyAttack attack;
+    [SerializeField] protected EnemyMovement movement;
 
-    [SerializeField] private float attackSpeed = 0.1f;
-
-
+    private bool isAttacking = false;
 
     private void Awake()
     {
-        anim = enemyObject.GetComponent<Animator>();
-        movement.EnemyAnimator = anim;
-        attack.EnemyAnimator = anim;
+        movement.Agent = agent;
+        movement.OnAttack += Attack;
+        attack.AttackSpeed = enemyStats.AttackSpeed;
+        movement.Animations = animations;
+        attack.Animations = animations;
     }
 
    
@@ -26,24 +22,30 @@ public class EnemyManager : MonoBehaviour
         //print("CONDITION:" + anim.GetInteger("condition"));
         //print("ATTACK:" + anim.GetInteger("attack"));
 
-        if (anim.GetInteger("condition") != 2)
+        if(animations.GetIntegerCondition("condition") != 2)
         {
-            attack.Close = false;
+            isAttacking = false;
         }
 
-        if (attack.Close == false)
+        if(!isAttacking)
         {
             //print("ENEMY MOVE");
-            movement.MoveEnemy();
+            Move();
         }
-
-
     }
 
+    protected override void Move()
+    {
+        movement.MoveEnemy();
+    }
 
-
-    private void Attack()
+    protected override void Attack()
     {
         attack.Attack();
+    }
+
+    protected override void Death()
+    {
+        //death
     }
 }

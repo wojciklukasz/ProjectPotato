@@ -1,75 +1,88 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private Animator enemyAnimator;
-    [SerializeField] private EnemyAttack attack;
+    [SerializeField] private EnemyAnimations animations;
     public Transform player;
-    private Vector3 pos;
+    private Vector3 startingPosition;
     private Vector3 playerPosition;
-    private int speed = 3;
+
     private float distance;
     private float distanceFromRespawn;
-    private bool Back;
-    
-    void Start()
+    private bool back;
+    private NavMeshAgent agent;
+
+    public UnityAction OnAttack;
+
+    public NavMeshAgent Agent
     {
-        pos = transform.position;
+        set { agent = value; }
     }
-    public Animator EnemyAnimator
+
+    private void Start()
     {
-        set { enemyAnimator = value; }
+        startingPosition = transform.position;
+    }
+
+    public EnemyAnimations Animations
+    {
+        set { animations = value; }
     }
     
     public void GoBack()
     {
-        enemyAnimator.SetInteger("condition", 1);
-        transform.LookAt(pos);
-        transform.position += transform.forward * speed * 3f * Time.deltaTime;
-        distanceFromRespawn = Vector3.Distance(pos, transform.position);
+        animations.PlayAnimation("Move");
+        transform.LookAt(startingPosition);
+        agent.SetDestination(startingPosition);
+        distanceFromRespawn = Vector3.Distance(startingPosition, transform.position);
         if (distanceFromRespawn < 1.0f)
         {
-            enemyAnimator.SetInteger("condition", 0);
+            animations.PlayAnimation("Idle");
             transform.LookAt(player.transform);
-            Back = false;
+            back = false;
         }
     }
+
     public void MoveEnemy()
     {
-        if (Back == true)
+        if (back == true)
         {
+            agent.isStopped = false;
             GoBack();
         }
         else
         {
             distance = Vector3.Distance(player.position, transform.position);
-            distanceFromRespawn = Vector3.Distance(pos, transform.position);
+            distanceFromRespawn = Vector3.Distance(startingPosition, transform.position);
             playerPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
             if (distanceFromRespawn > 30f)
             {
-                Back = true;
+                back = true;
+                //agent.isStopped = false;
             }
             else if (distance < 2.5f)
             {
                 transform.LookAt(playerPosition);
-                attack.Attack();
-                //StartCoroutine(attack.Attack());
+                agent.isStopped = true;
+                OnAttack?.Invoke(); //attack
             }
             else if (distance < 15.0f)
             {
+                agent.isStopped = false;
                 transform.LookAt(playerPosition);
-                enemyAnimator.SetInteger("condition", 1);
-                transform.position += transform.forward * speed * Time.deltaTime;
+                animations.PlayAnimation("Move");
+                agent.SetDestination(playerPosition);
             }
             else if (distanceFromRespawn > 2f)
             {
-                Back = true;
+                back = true;
+                //agent.isStopped = false;
             }
             else
             {
-                enemyAnimator.SetInteger("condition", 0);
+                animations.PlayAnimation("Idle");
             }
         }
     }
