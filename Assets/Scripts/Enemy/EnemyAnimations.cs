@@ -15,7 +15,6 @@ public class EnemyAnimations : Animations
     public override void PlayAnimation(string name)
     {
         int attackAnimation = 0;
-        int deathAnimation = 0;
 
         switch (name)
         {
@@ -30,7 +29,6 @@ public class EnemyAnimations : Animations
                 animationToPlay = animationsNames.Attack;
                 break;
             case "Death":
-                deathAnimation = Random.Range(0, 2); //to change
                 animationToPlay = animationsNames.Death;
                 break;
             default:
@@ -40,6 +38,7 @@ public class EnemyAnimations : Animations
 
         animator.SetInteger("condition", (int)animationToPlay);
         if ((int)animationToPlay == 2) animator.SetInteger("attack", attackAnimation);
-        //if ((int)animationToPlay == 4) animator.SetInteger("Death", deathAnimation);
+
+        //if ((int)animationToPlay == 3) animator.SetInteger("Death", deathAnimation);
     }
 }

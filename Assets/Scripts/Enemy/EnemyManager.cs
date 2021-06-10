@@ -8,6 +8,7 @@ public class EnemyManager : EnemyEntity
     [SerializeField] private EnemyUI enemyUI;
     [SerializeField] private HitboxCollider hitboxCollider;
     private float health=0f;
+    private bool isDeath = false;
 
     private bool isAttacking = false;
 
@@ -27,21 +28,26 @@ public class EnemyManager : EnemyEntity
    
     void Update()
     {
-        //print(attackCounter);
         //print("CONDITION:" + anim.GetInteger("condition"));
         //print("ATTACK:" + anim.GetInteger("attack"));
 
-        if(animations.GetIntegerCondition("condition") != 2)
+        if(health<=0f && !isDeath)
         {
-            attackCounter = 0;
-            isAttacking = false;
+            Death();
         }
-
-        if(!isAttacking)
+        else if(!isDeath)
         {
-            
-            //print("ENEMY MOVE");
-            Move();
+            if (animations.GetIntegerCondition("condition") != 2)
+            {
+                attackCounter = 0;
+                isAttacking = false;
+            }
+
+            if (!isAttacking)
+            {
+                //print("ENEMY MOVE");
+                Move();
+            }
         }
     }
 
@@ -57,7 +63,14 @@ public class EnemyManager : EnemyEntity
 
     protected override void Death()
     {
-        //death
+        isDeath = true;
+        print("Kill enemy");
+        animations.PlayAnimation("Death");
+        attack.enabled = false;
+        movement.enabled = false;
+        health = 0.0f;
+        enemyUI.UpdateHealthBar(health, false);
+        Destroy(this.gameObject,5f);
     }
 
     public override void TakeDmg(float amount)

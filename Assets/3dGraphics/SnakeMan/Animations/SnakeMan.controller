@@ -214,6 +214,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-3475659214374363434
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: condition
+    m_EventTreshold: 3
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8773020717638383405}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 0
 --- !u!1101 &-2865626719285139987
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -505,19 +530,19 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8773020717638383405}
-    m_Position: {x: -60, y: 480, z: 0}
+    m_Position: {x: -300, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 836416663323337628}
-    m_Position: {x: -10, y: 700, z: 0}
+    m_Position: {x: -70, y: 650, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7442713259265173841}
-    m_Position: {x: 0, y: 580, z: 0}
+    m_Position: {x: -60, y: 530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -221433260931337490}
-    m_Position: {x: -10, y: 660, z: 0}
+    m_Position: {x: -70, y: 610, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4642186557160980697}
-    m_Position: {x: 0, y: 620, z: 0}
+    m_Position: {x: -60, y: 570, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4414632038767986104}
     m_Position: {x: 0, y: 150, z: 0}
@@ -531,6 +556,7 @@ AnimatorStateMachine:
   - {fileID: -7413297619981307557}
   - {fileID: -1069607222677650469}
   - {fileID: -5962682926317064827}
+  - {fileID: -3475659214374363434}
   m_EntryTransitions:
   - {fileID: -6718647855081079248}
   m_StateMachineTransitions: {}
