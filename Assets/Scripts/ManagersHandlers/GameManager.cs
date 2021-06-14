@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WinMenu winMenu;
     [SerializeField] private DefeatMenu defeatMenu;
     [SerializeField] private TriggerBattle triggerBoss;
+    [SerializeField] private MusicManager musicManager;
 
     private void Awake()
     {
@@ -23,6 +24,11 @@ public class GameManager : MonoBehaviour
         playerManager.OnHealthUpdate += UpdateHealthBar;
         playerManager.OnDeath += LoseGame;
         triggerBoss.OnStartBattle += TriggerBossBattle;
+    }
+
+    private void Start()
+    {
+        musicManager.PlayMusic("MainMusic");
     }
 
     private void Update()
@@ -81,7 +87,7 @@ public class GameManager : MonoBehaviour
     private void TriggerBossBattle()
     {
         print("BOSS BATTLE TRIGGER");
-        //maybe set music
+        musicManager.PlayMusic("BossMusic");
         //show boss hp bar
     }
 }

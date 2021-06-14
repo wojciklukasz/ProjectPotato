@@ -28,16 +28,13 @@ public class EnemyManager : EnemyEntity
    
     void Update()
     {
-        //print("CONDITION:" + anim.GetInteger("condition"));
-        //print("ATTACK:" + anim.GetInteger("attack"));
-
         if(health<=0f && !isDeath)
         {
             Death();
         }
         else if(!isDeath)
         {
-            if (animations.GetIntegerCondition("condition") != 2)
+            if (animations.GetIntegerCondition("attack") == -1)
             {
                 attackCounter = 0;
                 isAttacking = false;

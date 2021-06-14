@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   rotationSpeed: 0
-  attackSpeed: 0.9
+  attackSpeed: 1.2
   health: 50
   dmg: 10
