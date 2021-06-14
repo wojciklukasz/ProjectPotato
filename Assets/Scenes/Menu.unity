@@ -579,6 +579,117 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6185572742537059513, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742537059513, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742537059513, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742637947472, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 54.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742637947487, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_text
+      value: 'Project: Potato'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742686310888, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742686310888, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca46b0b96d811c34b8bd11ede3762990, type: 3}
+    - target: {fileID: 6185572742961337219, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742961337219, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572742961337219, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743042155062, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743042155062, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743042155062, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271852, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_text
+      value: "\u0141ukasz W\xF3jcik - Team Leader\nKarolina Serpatowska - Software
+        Engineer\nMarek Szypulski - Software Engineer\nTomasz J\u0105der - Testing\nSzymon
+        \u017Bywko - Testing\n\n3D Graphics:\nKarolina Serpatowska\nAdrian Miko\u0142ajczuk\n\nEnemy
+        and Boss Animations: Karolina Serpatowska"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271852, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271853, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271853, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271853, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271853, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271853, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271853, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743290271853, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -73.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743428066948, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743428066948, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca46b0b96d811c34b8bd11ede3762990, type: 3}
+    - target: {fileID: 6185572743465634854, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572743465634854, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca46b0b96d811c34b8bd11ede3762990, type: 3}
+    - target: {fileID: 6185572743694443934, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6185572743820890770, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
       propertyPath: m_Name
       value: Menu
@@ -666,6 +777,34 @@ PrefabInstance:
     - target: {fileID: 6185572743820890781, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572744220342903, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572744220342903, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca46b0b96d811c34b8bd11ede3762990, type: 3}
+    - target: {fileID: 6185572744254048183, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572744475454537, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572744475454537, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572744475454537, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185572744575030226, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30e52304481bc3f42b4ee29e7b207316, type: 3}
