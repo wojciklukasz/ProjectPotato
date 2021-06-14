@@ -26,14 +26,15 @@ public class HitboxCollider : MonoBehaviour
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("CameraCollision") && other.gameObject.layer != this.gameObject.layer && other.gameObject.tag == "Weapon") //collision with weapon
         {
-            Debug.Log("KOLIZJA" + this.gameObject.tag + " z " + other.gameObject.tag);
             if (gameObject.layer == LayerMask.NameToLayer("Enemy") && other.transform.root.gameObject.layer == LayerMask.NameToLayer("Player") && player.attackCounter==0) //enemy takes hit
             {
+                Debug.Log("KOLIZJA" + this.gameObject.tag + " z " + other.gameObject.tag);
                 enemyEntity.TakeDmg(player.dmg);
                 player.attackCounter++;
             }
             else if (gameObject.layer == LayerMask.NameToLayer("Player") && other.transform.root.gameObject.layer == LayerMask.NameToLayer("Enemy")) //player takes hit
             {
+                Debug.Log("KOLIZJA" + this.gameObject.tag + " z " + other.gameObject.tag);
                 enemyEntity = other.transform.root.GetComponent<EnemyManager>();
                 if(!enemyEntity) // add here ^ this but other script (if you have different script :) ) - needs to be EnemyEntity
                 {

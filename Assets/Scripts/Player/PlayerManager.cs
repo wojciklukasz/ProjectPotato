@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     public float attackCounter = 0;
     public float dmg = 10f;
     private bool isDeath = false;
+    //[SerializeField] private SoundManager soundManager;
 
     public float Health
     {
@@ -105,6 +106,7 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDmg(float amount)
     {
+        //soundManager.PlayAudio("Hit1");
         if (health > 0f)
         {
             health -= amount;
