@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 7652744189169484047}
   - component: {fileID: 1115906237}
   - component: {fileID: 1984006908}
+  - component: {fileID: 2013617862}
   m_Layer: 7
   m_Name: PlayerManager
   m_TagString: Player
@@ -92,6 +93,10 @@ MonoBehaviour:
   weaponObject: {fileID: 7652744188415001294}
   hitboxCollider: {fileID: 1984006908}
   health: 0
+  attackCounter: 0
+  dmg: 10
+  healing: {fileID: 2013617862}
+  isHealing: 0
 --- !u!114 &7652744189169484041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +157,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bbd61a5f68a4a49812fd88d21f35a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemyEntity: {fileID: 0}
+--- !u!114 &2013617862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652744189169484042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69950eea4c1c2c844a23757d8d827528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healHpAmount: 10
+  healSpeed: 0.4
+  animations: {fileID: 0}
+  healsAmount: 2
 --- !u!114 &618535875
 MonoBehaviour:
   m_ObjectHideFlags: 0

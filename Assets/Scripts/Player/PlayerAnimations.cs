@@ -27,12 +27,14 @@ public class PlayerAnimations : Animations
                 attackAnimation = Random.Range(0, 2);
                 animationToPlay = animationsNames.Attack;
                 break;
+            case "Heal":
+                animationToPlay = animationsNames.Heal;
+                break;
             case "Death":
                 deathAnimation = Random.Range(0, 2);
                 animationToPlay = animationsNames.Death;
                 break;
             default:
-                //deathAnimation = Random.Range(0, 2);
                 animationToPlay = animationsNames.Move;
                 break;
         }

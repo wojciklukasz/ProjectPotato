@@ -18,12 +18,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameplayUI.SetHealth(playerManager.playerStats.Health, true);
+        gameplayUI.SetHealsAmount(playerManager.GetHealsAmount());
         gameplayUI.ShowPlayerUI();
         gameplayInputHandler.OnPauseAction += Pause;
         pauseMenu.OnChangePauseState += ChangePauseStateOnButton;
         playerManager.OnHealthUpdate += UpdateHealthBar;
         playerManager.OnDeath += LoseGame;
         triggerBoss.OnStartBattle += TriggerBossBattle;
+        playerManager.OnHealingUIUpdate += UpdateHealingAmount;
     }
 
     private void Start()
@@ -89,5 +91,11 @@ public class GameManager : MonoBehaviour
         print("BOSS BATTLE TRIGGER");
         musicManager.PlayMusic("BossMusic");
         //show boss hp bar
+    }
+
+    private void UpdateHealingAmount()
+    {
+        print("HEALS UPDATE");
+        gameplayUI.SetHealsAmount(playerManager.GetHealsAmount());
     }
 }

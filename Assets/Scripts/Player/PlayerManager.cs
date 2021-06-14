@@ -22,6 +22,9 @@ public class PlayerManager : MonoBehaviour
     public float dmg = 10f;
     private bool isDeath = false;
     //[SerializeField] private SoundManager soundManager;
+    [SerializeField] private PlayerHealing healing;
+    [SerializeField] private bool isHealing = false;
+    public UnityAction OnHealingUIUpdate;
 
     public float Health
     {
@@ -46,10 +49,20 @@ public class PlayerManager : MonoBehaviour
         hitboxCollider.OnKillCollision += Death; //play death anim + set hp to 0
         health = playerStats.Health;
         OnHealthUpdate?.Invoke();
+
+        gameplayInputHandler.OnHealingAction += Heal;
+        healing.Animations = playerAnimations;
+        healing.HealSpeed = playerStats.HealSpeed;
     }
 
     private void Update()
     {
+        if (playerAnimations.IsAnimationPlaying("healing"))
+        {
+            isHealing = true;
+        }
+        else isHealing = false;
+
         if (playerAnimations.IsAnimationPlaying("attack1") || playerAnimations.IsAnimationPlaying("attack2"))
         {
             isAttacking = true;
@@ -62,7 +75,7 @@ public class PlayerManager : MonoBehaviour
             weaponCollider.enabled = false;
         }
 
-        if (!isAttacking && movement.enabled)
+        if (!isAttacking && !isHealing && movement.enabled)
         {
             Movement();
         }
@@ -86,7 +99,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Attack()
     {
-        if (!isAttacking && attacking.enabled)
+        if (!isHealing && !isAttacking && attacking.enabled)
         {
             weaponCollider.enabled = true;
             attacking.Attack();
@@ -99,6 +112,7 @@ public class PlayerManager : MonoBehaviour
         print("Kill player");
         attacking.enabled = false;
         movement.enabled = false;
+        healing.enabled = false;
         playerAnimations.PlayAnimation("Death");
         health = 0.0f;
         OnHealthUpdate?.Invoke();
@@ -112,5 +126,24 @@ public class PlayerManager : MonoBehaviour
             health -= amount;
             OnHealthUpdate?.Invoke();
         }
+    }
+
+    private void Heal()
+    {
+        if (!isAttacking && !isHealing && healing.enabled)
+        {
+            float amount = healing.Heal();
+            OnHealingUIUpdate?.Invoke();
+            if (health < playerStats.Health)
+            {
+                health += amount;
+                OnHealthUpdate?.Invoke();
+            }
+        }
+    }
+
+    public int GetHealsAmount()
+    {
+        return healing.HealsAmount;
     }
 }

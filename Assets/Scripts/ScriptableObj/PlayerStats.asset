@@ -17,3 +17,4 @@ MonoBehaviour:
   attackSpeed: 0.9
   health: 100
   dmg: 30
+  healSpeed: 0.9
