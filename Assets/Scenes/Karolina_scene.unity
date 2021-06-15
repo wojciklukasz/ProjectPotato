@@ -1699,10 +1699,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2013617862, guid: 7e84fd4347e2fb047bc508c4f3619238, type: 3}
-      propertyPath: healSpeed
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 7652744189169484040, guid: 7e84fd4347e2fb047bc508c4f3619238, type: 3}
       propertyPath: gameplayInputHandler
       value: 
