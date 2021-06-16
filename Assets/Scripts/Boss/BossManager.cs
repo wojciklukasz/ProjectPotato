@@ -6,13 +6,14 @@ public class BossManager : EnemyEntity
     [SerializeField] private BossAnimations animations;
     [SerializeField] private BossAttack attack;
     [SerializeField] private BossMovement movement;
-    //[SerializeField] private EnemyUI enemyUI;
+    [SerializeField] private BossUI bossUI;
     [SerializeField] private float health = 0f;
     private bool isDeath = false;
 
     private bool isAttacking = false;
 
     public UnityAction OnStartBattle;
+    public UnityAction OnDeath;
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class BossManager : EnemyEntity
         movement.Animations = animations;
         attack.Animations = animations;
         OnStartBattle += StartBattle;
-        //enemyUI.UpdateHealthBar(health, true);
+        bossUI.DisableHPBar();
     }
 
 
@@ -53,6 +54,8 @@ public class BossManager : EnemyEntity
 
     private void StartBattle()
     {
+        bossUI.UpdateHealthBar(health, true);
+        bossUI.EnableHPBar();
         movement.isStartedBattle = true;
     }
 
@@ -74,14 +77,16 @@ public class BossManager : EnemyEntity
         attack.enabled = false;
         movement.enabled = false;
         health = 0.0f;
-        //enemyUI.UpdateHealthBar(health, false);
+        bossUI.UpdateHealthBar(health, false);
+        OnDeath?.Invoke();
         Destroy(this.gameObject, 5f);
+        bossUI.DisableHPBar();
     }
 
     public override void TakeDmg(float amount)
     {
         health -= amount;
-        //enemyUI.UpdateHealthBar(health, false);
+        bossUI.UpdateHealthBar(health, false);
     }
 }
 

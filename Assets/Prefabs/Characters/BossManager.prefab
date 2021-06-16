@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2617575455181625631}
   - component: {fileID: 2617575455181625629}
   - component: {fileID: 2617575455181625628}
+  - component: {fileID: 475942838}
   m_Layer: 6
   m_Name: BossManager
   m_TagString: Boss
@@ -151,6 +152,7 @@ MonoBehaviour:
   animations: {fileID: 2617575455181625627}
   attack: {fileID: 2617575455181625624}
   movement: {fileID: 2617575455181625625}
+  bossUI: {fileID: 475942838}
   health: 0
 --- !u!114 &2617575455181625625
 MonoBehaviour:
@@ -166,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animations: {fileID: 2617575455181625627}
   player: {fileID: 0}
+  isStartedBattle: 0
 --- !u!114 &2617575455181625624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +277,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemyEntity: {fileID: 0}
+--- !u!114 &475942838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2617575455181625623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b35567e024cd864bac9d51b94f6a126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  hpBarObj: {fileID: 0}
 --- !u!114 &145642578
 MonoBehaviour:
   m_ObjectHideFlags: 0

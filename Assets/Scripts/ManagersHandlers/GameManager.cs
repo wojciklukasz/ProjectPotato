@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TriggerBattle triggerBoss;
     [SerializeField] private MusicManager musicManager;
     [SerializeField] private BossManager boss;
+    [SerializeField] private bool isWinMenu = false;
+    [SerializeField] private BoxCollider winGate;
+    [SerializeField] private TriggerWinGame triggerWin;
 
     private void Awake()
     {
@@ -27,6 +30,9 @@ public class GameManager : MonoBehaviour
         playerManager.OnDeath += LoseGame;
         triggerBoss.OnStartBattle += TriggerBossBattle;
         playerManager.OnHealingUIUpdate += UpdateHealingAmount;
+        boss.OnDeath += WinGame;
+        winGate.enabled = false;
+        triggerWin.OnWin += EnableWinMenu;
     }
 
     private void Start()
@@ -43,14 +49,14 @@ public class GameManager : MonoBehaviour
 
     private void Pause()
     {
-        if (!isPause && !isDefeatMenu)
+        if (!isPause && !isDefeatMenu && !isWinMenu)
         {
             isPause = true;
             print("PAUSE");
             pauseMenu.OnEnable?.Invoke();
             gameplayInputHandler.SwitchActionMapToUI();
         }
-        else if (!isDefeatMenu)
+        else if (!isDefeatMenu && !isWinMenu)
         {
             isPause = false;
             print("DISABLE PAUSE");
@@ -99,5 +105,19 @@ public class GameManager : MonoBehaviour
     {
         print("HEALS UPDATE");
         gameplayUI.SetHealsAmount(playerManager.GetHealsAmount());
+    }
+
+    private void WinGame()
+    {
+        print("Win MENU");
+        musicManager.PlayMusic("MainMusic");
+        winGate.enabled = true;
+    }
+
+    private void EnableWinMenu()
+    {
+        isWinMenu = true;
+        gameplayInputHandler.SwitchActionMapToUI();
+        winMenu.OnEnable?.Invoke();
     }
 }

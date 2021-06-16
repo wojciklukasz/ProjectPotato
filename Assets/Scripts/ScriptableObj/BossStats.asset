@@ -15,6 +15,6 @@ MonoBehaviour:
   moveSpeed: 0
   rotationSpeed: 0
   attackSpeed: 1.2
-  health: 50
-  dmg: 10
+  health: 100
+  dmg: 15
   healSpeed: 0

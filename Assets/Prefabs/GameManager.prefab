@@ -56,3 +56,6 @@ MonoBehaviour:
   triggerBoss: {fileID: 0}
   musicManager: {fileID: 0}
   boss: {fileID: 0}
+  isWinMenu: 0
+  winGate: {fileID: 0}
+  triggerWin: {fileID: 0}
