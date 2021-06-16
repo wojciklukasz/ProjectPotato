@@ -6,14 +6,14 @@ public class BossMovement : MonoBehaviour
 {
     [SerializeField] private BossAnimations animations;
     public Transform player;
-    private Vector3 startingPosition;
     private Vector3 playerPosition;
 
     private float distance;
-    private bool back;
     private NavMeshAgent agent;
 
     public UnityAction OnAttack;
+
+    public bool isStartedBattle = false;
 
     public NavMeshAgent Agent
     {
@@ -28,20 +28,20 @@ public class BossMovement : MonoBehaviour
 
     public void MoveBoss()
     {
-
         distance = Vector3.Distance(player.position, transform.position);
         playerPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
-        if (distance < 2.5f)
+        if (distance < 10f)
         {
+            //print("BOSS ATTACK");
             transform.LookAt(playerPosition);
             agent.isStopped = true;
             OnAttack?.Invoke(); //attack
         }
-        else
+        else if (distance < 20.0f || isStartedBattle)
         {
             agent.isStopped = false;
             transform.LookAt(playerPosition);
-            animations.PlayAnimation("Move");
+            animations.PlayAnimation("IdleAndRun");
             agent.SetDestination(playerPosition);
         }
     }

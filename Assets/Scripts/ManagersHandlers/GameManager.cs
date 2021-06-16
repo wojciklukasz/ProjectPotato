@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DefeatMenu defeatMenu;
     [SerializeField] private TriggerBattle triggerBoss;
     [SerializeField] private MusicManager musicManager;
+    [SerializeField] private BossManager boss;
 
     private void Awake()
     {
@@ -90,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         print("BOSS BATTLE TRIGGER");
         musicManager.PlayMusic("BossMusic");
+        boss.OnStartBattle?.Invoke();
         //show boss hp bar
     }
 

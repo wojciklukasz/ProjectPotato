@@ -6,6 +6,7 @@ public class BossAnimations : Animations
     {
         IdleAndRun,
         Attack,
+        Throwing,
         Death
     };
 
@@ -21,8 +22,11 @@ public class BossAnimations : Animations
                 animationToPlay = animationsNames.IdleAndRun;
                 break;
             case "Attack":
-                attackAnimation = Random.Range(1, 4);
+                attackAnimation = Random.Range(0, 2);
                 animationToPlay = animationsNames.Attack;
+                break;
+            case "Throw":
+                animationToPlay = animationsNames.Throwing;
                 break;
             case "Death":
                 animationToPlay = animationsNames.Death;
@@ -32,9 +36,7 @@ public class BossAnimations : Animations
                 break;
         }
 
-        animator.SetInteger("condition", (int)animationToPlay);
-        if ((int)animationToPlay == 2) animator.SetInteger("attack", attackAnimation);
-
-        //if ((int)animationToPlay == 3) animator.SetInteger("Death", deathAnimation);
+        animator.SetInteger("State", (int)animationToPlay);
+        if ((int)animationToPlay == 1) animator.SetInteger("attack", attackAnimation);
     }
 }

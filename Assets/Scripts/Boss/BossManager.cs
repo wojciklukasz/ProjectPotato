@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BossManager : BossEntity
+public class BossManager : EnemyEntity
 {
+    [SerializeField] private BossAnimations animations;
     [SerializeField] private BossAttack attack;
     [SerializeField] private BossMovement movement;
-    [SerializeField] private EnemyUI enemyUI;
-    [SerializeField] private HitboxCollider hitboxCollider;
-    private float health = 0f;
+    //[SerializeField] private EnemyUI enemyUI;
+    [SerializeField] private float health = 0f;
     private bool isDeath = false;
 
     private bool isAttacking = false;
 
+    public UnityAction OnStartBattle;
+
     private void Awake()
     {
         attackCounter = 0;
-        health = bossStats.Health;
-        dmg = bossStats.Dmg;
+        health = enemyStats.Health;
+        dmg = enemyStats.Dmg;
         movement.Agent = agent;
         movement.OnAttack += Attack;
-        attack.AttackSpeed = bossStats.AttackSpeed;
+        attack.AttackSpeed = enemyStats.AttackSpeed;
         movement.Animations = animations;
         attack.Animations = animations;
-        enemyUI.UpdateHealthBar(health, true);
+        OnStartBattle += StartBattle;
+        //enemyUI.UpdateHealthBar(health, true);
     }
 
 
@@ -50,6 +51,11 @@ public class BossManager : BossEntity
         }
     }
 
+    private void StartBattle()
+    {
+        movement.isStartedBattle = true;
+    }
+
     protected override void Move()
     {
         movement.MoveBoss();
@@ -68,14 +74,14 @@ public class BossManager : BossEntity
         attack.enabled = false;
         movement.enabled = false;
         health = 0.0f;
-        enemyUI.UpdateHealthBar(health, false);
+        //enemyUI.UpdateHealthBar(health, false);
         Destroy(this.gameObject, 5f);
     }
 
     public override void TakeDmg(float amount)
     {
         health -= amount;
-        enemyUI.UpdateHealthBar(health, false);
+        //enemyUI.UpdateHealthBar(health, false);
     }
 }
 

@@ -6,7 +6,6 @@ public abstract class EnemyEntity : MonoBehaviour
     [SerializeField] protected PlayerManager player;
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] protected GameObject enemyObj;
-    [SerializeField] protected EnemyAnimations animations;
     [SerializeField] public Stats enemyStats;
     public float attackCounter = 0;
     public float dmg = 5f;

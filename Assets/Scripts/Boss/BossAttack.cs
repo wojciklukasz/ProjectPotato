@@ -5,7 +5,7 @@ public class BossAttack : MonoBehaviour
 {
     [SerializeField] private BossAnimations animations;
     private float nextAttack;
-    [SerializeField] private float attackSpeed = 0.9f;
+    [SerializeField] private float attackSpeed = 1.3f;
 
     public BossAnimations Animations
     {

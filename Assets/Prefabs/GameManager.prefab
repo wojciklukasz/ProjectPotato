@@ -55,3 +55,4 @@ MonoBehaviour:
   defeatMenu: {fileID: 0}
   triggerBoss: {fileID: 0}
   musicManager: {fileID: 0}
+  boss: {fileID: 0}

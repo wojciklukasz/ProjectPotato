@@ -35,8 +35,9 @@ public class HitboxCollider : MonoBehaviour
             else if (gameObject.layer == LayerMask.NameToLayer("Player") && other.transform.root.gameObject.layer == LayerMask.NameToLayer("Enemy")) //player takes hit
             {
                 Debug.Log("KOLIZJA" + this.gameObject.tag + " z " + other.gameObject.tag);
-                enemyEntity = other.transform.root.GetComponent<EnemyManager>();
-                if(!enemyEntity) // add here ^ this but other script (if you have different script :) ) - needs to be EnemyEntity
+                if (other.transform.root.tag == "SnakeMan") enemyEntity = other.transform.root.GetComponent<EnemyManager>();
+                if(other.transform.root.tag=="Boss") enemyEntity = other.transform.root.GetComponent<BossManager>();
+                if (!enemyEntity) // add here ^ this but other script (if you have different script :) ) - needs to be EnemyEntity
                 {
                     print("Cant find enemy");
                 }

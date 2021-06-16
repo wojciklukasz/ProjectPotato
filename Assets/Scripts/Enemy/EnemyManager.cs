@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class EnemyManager : EnemyEntity
 {
+    [SerializeField] private EnemyAnimations animations;
     [SerializeField] private EnemyAttack attack;
     [SerializeField] private EnemyMovement movement;
     [SerializeField] private EnemyUI enemyUI;
-    [SerializeField] private HitboxCollider hitboxCollider;
     private float health=0f;
     private bool isDeath = false;
 
