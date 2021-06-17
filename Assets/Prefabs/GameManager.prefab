@@ -50,5 +50,12 @@ MonoBehaviour:
   gameplayUI: {fileID: 0}
   pauseMenu: {fileID: 0}
   isPause: 0
+  isDefeatMenu: 0
   winMenu: {fileID: 0}
   defeatMenu: {fileID: 0}
+  triggerBoss: {fileID: 0}
+  musicManager: {fileID: 0}
+  boss: {fileID: 0}
+  isWinMenu: 0
+  winGate: {fileID: 0}
+  triggerWin: {fileID: 0}

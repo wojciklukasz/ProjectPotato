@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Weapon
   - SnakeMan
+  - KillPlayer
+  - Boss
   layers:
   - Default
   - TransparentFX
