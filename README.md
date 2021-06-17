@@ -6,7 +6,7 @@ Project: Potato will be a 3d Dark Souls-like game made in Unity, the target plat
 The game will feature a 3rd person perspective, basic combat system, few types of enemies and some rpg elements.
 
 
-Our team:
+# Our team:
 
 Łukasz Wójcik - Team Leader https://projectpotato.atlassian.net/issues?filter=10001
 
@@ -18,9 +18,8 @@ Tomasz Jąder - Tester https://projectpotato.atlassian.net/issues/?filter=10002
 
 Szymon Żywko - Tester https://projectpotato.atlassian.net/issues/?filter=10004
 
+Damian Smoleń - Tester https://projectpotato.atlassian.net/issues/?filter=10006
 
 
-
-
-Build link:
+# Build link:
 https://drive.google.com/drive/folders/18JQ6MO9wZzncScNdyjZ--XlY2IZJHKuQ?usp=sharing
