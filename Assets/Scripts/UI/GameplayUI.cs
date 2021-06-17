@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameplayUI : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
+    [SerializeField] private TextMeshProUGUI healthAmountText;
 
     public void SetHealth(float amount, bool setMaxVal)
     {
@@ -19,5 +21,10 @@ public class GameplayUI : MonoBehaviour
     public void HidePlayerUI()
     {
         healthSlider.gameObject.SetActive(false);
+    }
+
+    public void SetHealsAmount(int amount)
+    {
+        healthAmountText.text = amount.ToString();
     }
 }

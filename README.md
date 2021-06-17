@@ -17,3 +17,10 @@ Marek Szypulski - Software Engineer https://projectpotato.atlassian.net/issues/?
 Tomasz Jąder - Tester https://projectpotato.atlassian.net/issues/?filter=10002
 
 Szymon Żywko - Tester https://projectpotato.atlassian.net/issues/?filter=10004
+
+
+
+
+
+Build link:
+https://drive.google.com/drive/folders/18JQ6MO9wZzncScNdyjZ--XlY2IZJHKuQ?usp=sharing

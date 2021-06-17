@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ce61b519a03a447a5ddab3fd7a8b96, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   rotationSpeed: 0.1
   attackSpeed: 0.9
   health: 100
+  dmg: 30
+  healSpeed: 0.9

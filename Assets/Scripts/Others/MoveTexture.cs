@@ -14,6 +14,6 @@ public class MoveTexture : MonoBehaviour
     private void Update()
     {
         float moveThis = Time.time * scrollSpeed;
-        renderer.material.SetTextureOffset("_BaseColorMap", new Vector2(moveThis,0));
+        renderer.material.SetTextureOffset("_BaseColorMap", new Vector2(0,moveThis));
     }
 }

@@ -16,4 +16,10 @@ public class EnemyUI : MonoBehaviour
     {
         enemyUI.transform.LookAt(transform.position + targetCamera.transform.forward);
     }
+
+    public void UpdateHealthBar(float amount, bool setMaxVal)
+    {
+        if (setMaxVal) healthBar.maxValue = amount;
+        healthBar.value = amount;
+    }
 }

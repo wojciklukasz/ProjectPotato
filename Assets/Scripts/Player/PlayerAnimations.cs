@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class PlayerAnimations : MonoBehaviour
+public class PlayerAnimations : Animations
 {
-    [SerializeField] private Animator animator;
-
     public enum animationsNames
     {
         Move,
@@ -14,15 +12,12 @@ public class PlayerAnimations : MonoBehaviour
     };
 
     public animationsNames animationToPlay;
-    private int attackAnimation;
 
-    public Animator Animator
+    public override void PlayAnimation(string name)
     {
-        set { animator = value; }
-    }
+        int attackAnimation=0;
+        int deathAnimation=0;
 
-    public void PlayAnimation(string name)
-    {
         switch (name)
         {
             case "Move":
@@ -32,6 +27,13 @@ public class PlayerAnimations : MonoBehaviour
                 attackAnimation = Random.Range(0, 2);
                 animationToPlay = animationsNames.Attack;
                 break;
+            case "Heal":
+                animationToPlay = animationsNames.Heal;
+                break;
+            case "Death":
+                deathAnimation = Random.Range(0, 2);
+                animationToPlay = animationsNames.Death;
+                break;
             default:
                 animationToPlay = animationsNames.Move;
                 break;
@@ -39,20 +41,7 @@ public class PlayerAnimations : MonoBehaviour
 
         animator.SetInteger("State", (int)animationToPlay);
         if((int)animationToPlay==1) animator.SetInteger("Attack", attackAnimation);
+        if ((int)animationToPlay == 4) animator.SetInteger("Death", deathAnimation);
 
     }
-
-    public void SetFloatAnimation(string paramName, float speed)
-    {
-        animator.SetFloat(paramName, speed, 0.0f, Time.deltaTime);
-    }
-
-    public bool IsAnimationPlaying(string animName)
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(animName)) return true;
-        else return false;
-    }
-
-    
-
 }
